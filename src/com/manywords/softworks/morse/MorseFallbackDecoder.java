@@ -48,12 +48,12 @@ class MorseFallbackDecoder {
             if(s.duration < histogram.length) histogram[(int) s.duration]++;
         }
 
-        System.out.println("Min/max " + min + "/" + max);
-        System.out.println("Histogram: " + Arrays.toString(histogram));
+        //System.out.println("Min/max " + min + "/" + max);
+        //System.out.println("Histogram: " + Arrays.toString(histogram));
 
         final int windowRadius = Math.max(min, 75);
         final int mergeRadius = windowRadius / 3;
-        System.out.println("Window size: " + windowRadius);
+        //System.out.println("Window size: " + windowRadius);
         List<Window> windows = new ArrayList<>();
         for(int i = arrayMin; i < max; i += windowRadius) {
             if(countHistogramPoints(histogram, i, windowRadius) > 0) windows.add(new Window(i, windowRadius));
@@ -115,7 +115,7 @@ class MorseFallbackDecoder {
             }
         }
 
-        System.out.println("After " + trials + " trials: " + merged);
+        //System.out.println("After " + trials + " trials: " + merged);
 
         if(merged.size() == 1) {
             int estimate = merged.get(0).center;
@@ -214,7 +214,7 @@ class MorseFallbackDecoder {
     }
 
     private void setEstimatedSpeeds(int dotMsec) {
-        System.out.println("Estimated dot speed: " + dotMsec);
+        //System.out.println("Estimated dot speed: " + dotMsec);
         mEstimatedMarkSpeed = new MorseSpeed(dotMsec);
         mEstimatedCharSpeed = new MorseSpeed((int) (dotMsec * 1.1));
         mEstimatedWordSpeed = new MorseSpeed((int) (dotMsec * 1.1));
