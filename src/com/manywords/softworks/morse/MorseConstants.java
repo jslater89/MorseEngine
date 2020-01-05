@@ -54,6 +54,7 @@ class MorseConstants {
     public static final int[] APOSTROPHE = { DOT, DASH, DASH, DASH, DASH, DOT };
     public static final int[] HYPHEN = { DASH, DOT, DOT, DOT, DOT, DASH };
     public static final int[] SLASH = { DASH, DOT, DOT, DASH, DOT };
+    public static final int[] EXCLAMATION = {DASH, DOT, DASH, DOT, DASH, DASH};
     public static final int[] PAREN = { DASH, DOT, DASH, DASH, DOT, DASH };
     public static final int[] QUOTE = { DOT, DASH, DOT, DOT, DASH, DOT };
     public static final int[] AT = { DOT, DASH, DASH, DOT, DASH, DOT };
@@ -63,13 +64,13 @@ class MorseConstants {
     public static final int[][] ALL_SIGNALS = {
             A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
             ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE,
-            STOP, COMMA, COLON, QUERY, APOSTROPHE, HYPHEN, SLASH, PAREN,
-            QUOTE, AT, EQUALS
+            STOP, COMMA, COLON, QUERY, APOSTROPHE, HYPHEN, SLASH, EXCLAMATION,
+            PAREN, QUOTE, AT, EQUALS
     };
     public static final String SIGNAL_CHARS =
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
             "0123456789" +
-            ".,:?'-/|\"@=";
+            ".,:?'-/!|\"@=";
 
     public static final int[] NEWLINE = { DOT, DASH, DOT, DASH };
     public static final int[] END_OF_MESSAGE = { DOT, DASH, DOT, DASH, DOT };
