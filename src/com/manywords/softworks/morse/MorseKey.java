@@ -210,20 +210,19 @@ public class MorseKey {
         mLastChar = character;
 
         List<MorseSignal> fallbackCopy = new ArrayList<>(mCurrentSignal);
-        MorseFallbackDecoder fallback = new MorseFallbackDecoder(fallbackCopy, getMarkSpeed(), character, prosign);
+        MorseFallbackDecoder fallback = new MorseFallbackDecoder(fallbackCopy, getMarkSpeed(), mStats, character, prosign);
         List<MorseCharacter> fallbackDecoded = fallback.decode();
 
         if(fallbackDecoded != null && fallbackDecoded.size() > 0) {
             for(MorseCharacter c : fallbackDecoded)
                 mListener.morseReceived(c);
 
-            // TODO: limit to a maxChange change
+            // TODO: limit to a maxChange change (if needed)
             mMarkSpeed = fallback.getEstimatedMarkSpeed();
             mCharSpeed = fallback.getEstimatedCharSpeed();
             mWordSpeed = fallback.getEstimatedWordSpeed();
 
             capSpeeds();
-            mStats.reset(mMarkSpeed, mCharSpeed, mWordSpeed);
         }
         else if(character.isEmpty()) {
             MorseProsign sign = MorseConstants.lookupProsign(signalPattern);
@@ -318,10 +317,15 @@ public class MorseKey {
         if(!mStats.canAdapt()) return;
 
         // --- be adaptive between symbols ---
-        // It's seven dots, so convert to dots
-        if(mWordSpeed.dotMsec > mCharSpeed.dotMsec * mAdaptiveDifferenceLimit) {
-            int speed = (int) (mCharSpeed.dotMsec * mAdaptiveDifferenceLimit);
-            mWordSpeed = changeSpeedWithCap(mWordSpeed, speed);
+        if(mWordSpeed.dotMsec < mCharSpeed.dotMsec) {
+            // word speed should never be faster than char speed
+            int speed = mCharSpeed.dotMsec;
+            mWordSpeed = new MorseSpeed(speed);
+        }
+        else if(mWordSpeed.dotMsec > mCharSpeed.dotMsec * mAdaptiveDifferenceLimit) {
+            // word speed should never be too much slower than char speed
+            int speed = (int) (mWordSpeed.dotMsec * mAdaptiveDifferenceLimit);
+            mWordSpeed = new MorseSpeed(speed);
         }
         else {
             double wordSilenceLength = mStats.getWordAverage() / 7;

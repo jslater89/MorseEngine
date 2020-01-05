@@ -9,7 +9,11 @@ class MorseFallbackDecoder {
     private List<MorseSignal> mSignal;
 
     private MorseSpeed mCurrentMarkSpeed;
+
+    private boolean hasCandidateCharacter = false;
     private String mCandidateCharacter = null;
+
+    private boolean hasCandidateProsign = false;
     private MorseProsign mCandidateProsign = null;
 
     // Derived from marks
@@ -19,11 +23,18 @@ class MorseFallbackDecoder {
     private MorseSpeed mEstimatedCharSpeed;
     private MorseSpeed mEstimatedWordSpeed;
 
-    MorseFallbackDecoder(List<MorseSignal> signal, MorseSpeed currentSpeed, String candidateChar, MorseProsign candidateProsign) {
+    private MorseStats mStats;
+
+    MorseFallbackDecoder(List<MorseSignal> signal, MorseSpeed currentSpeed, MorseStats stats, String candidateChar, MorseProsign candidateProsign) {
         mSignal = signal;
         mCurrentMarkSpeed = currentSpeed;
+        mStats = stats;
+
         mCandidateCharacter = candidateChar;
+        if(candidateChar != null) hasCandidateCharacter = true;
+
         mCandidateProsign = candidateProsign;
+        if(candidateProsign != null) hasCandidateProsign = true;
     }
 
     // Do mean-shift clustering to find a dot center, a dash center, and possibly an
@@ -204,15 +215,6 @@ class MorseFallbackDecoder {
         }
     }
 
-    private int averageDuration(List<MorseSignal> signal) {
-        int sum = 0;
-        for(MorseSignal s : signal) {
-            sum += s.duration;
-        }
-
-        return (sum / signal.size());
-    }
-
     private void setEstimatedSpeeds(int dotMsec) {
         //System.out.println("Estimated dot speed: " + dotMsec);
         mEstimatedMarkSpeed = new MorseSpeed(dotMsec);
@@ -270,10 +272,21 @@ class MorseFallbackDecoder {
                 continue;
             }
 
-            int[] dotDashArray = MorseSignal.toDotDashArray(c, mEstimatedMarkSpeed, null);
+            int[] dotDashArray = MorseSignal.toDotDashArray(c, mEstimatedMarkSpeed, mStats);
             String lookupResult = MorseConstants.lookup(dotDashArray);
             if(!lookupResult.isEmpty()) {
                 result.add(new MorseCharacter(lookupResult));
+            }
+        }
+
+        // If the fallback decoder decoded the same thing as the ordinary decoder, stay with the ordinary
+        // decoder for stats/adaptive speed purposes
+        if(result.size() == 1) {
+            if(hasCandidateCharacter && mCandidateCharacter.equals(result.get(0).character)) {
+                return null;
+            }
+            if(hasCandidateProsign && mCandidateProsign.equals(result.get(0).prosign)) {
+                return null;
             }
         }
 
