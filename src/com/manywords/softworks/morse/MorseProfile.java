@@ -96,7 +96,7 @@ public class MorseProfile {
     }
 
     /**
-     * Initialize this Morse profile with no variability, deriving speeds from the given
+     * Initialize this Morse profile with variability, deriving speeds from the given
      * {@link MorseStats} object.
      *
      * @param stats The Morse statistics to imitate.
@@ -111,7 +111,7 @@ public class MorseProfile {
         this(dotMsec, dashMsec, markMsec, charMsec, wordMsec, 0);
     }
 
-    MorseProfile(int dotMsec, int dashMsec, int markMsec, int charMsec, int wordMsec, double variability) {
+    public MorseProfile(int dotMsec, int dashMsec, int markMsec, int charMsec, int wordMsec, double variability) {
         if(dotMsec == 0 && dashMsec == 0) {
             dotSpeed = MorseSpeed.getSpeedForWPM(12.5);
             dashSpeed = MorseSpeed.getSpeedForWPM(12.5);
