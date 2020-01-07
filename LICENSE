@@ -1,162 +1,165 @@
-Lite Free-As-In-Beer License, v0.6:
+                   GNU LESSER GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
 
-1. Definitions
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
 
-	a. Licensor means the individuals or entities granting rights according
-	   to the terms of this license.
-	b. Licensee means the individuals or entities exercising rights granted
-	   by this license.
-	c. You means Licensee. Your is used with the corresponding meaning.
-	d. Application means a piece of software, comprising the Source Code, 
-	   and, potentially, any Binary or Binaries compiled from the Source
-	   Code. This Application means the Application covered by this license.
-	e. Compilation means the process of creating a standalone, executable
-	   version of the Application, or any packaged, monolithic version of
-	   the Application. Compile is used with the corresponding meaning. A
-	   Compiler is the software used for compilation.
-	f. Runtime means the time at which the Application is run, whether by
-	   executing Compiled Binaries, or by interpreting a copy of the Source
-	   Code on the fly. Run is used with the corresponding meaning. An
-	   Interpreter is the application used to interpret Source Code at
-	   Runtime.
-	g. Source Code means all uncompiled source files required to compile or
-	   run the Application.
-	h. Binary means any standalone executable or packaged version of the
-	   Application, created by Compilation.
-	i. Sell means require that money be transferred to You in exchange for
-	   something, such as the Source Code or Binaries.
-	j. Software means any Compiled or interpreted piece of software not
-	   covered by this license.
-	k. Library means any external Software required by a Compiler or 
-	   Interpreter to Compile or Run this Application.
 
-2. License grant
+  This version of the GNU Lesser General Public License incorporates
+the terms and conditions of version 3 of the GNU General Public
+License, supplemented by the additional permissions listed below.
 
-	a. Subject to the conditions of this license, the Licensor grants You a
-	   worldwide, royalty-free, non-sublicenseable, irrevocable, non-
-	   exclusive license to:
-		i. Reproduce, copy, and redistribute copies of the Source Code
-		   and any compiled Binaries.
-		ii. Modify the Source Code to create derivative works.
+  0. Additional Definitions.
 
-3. Conditions
+  As used herein, "this License" refers to version 3 of the GNU Lesser
+General Public License, and the "GNU GPL" refers to version 3 of the GNU
+General Public License.
 
-Your exercise of the rights granted by this license is subject to the following
-conditions.
+  "The Library" refers to a covered work governed by this License,
+other than an Application or a Combined Work as defined below.
 
-	a. Attribution
-		i. If You create any Software derived from or including Source
-		   Code or Binaries covered by this license, You must:
-			1. Retain identification of the creators of this
-			   Application, if present.
-			2. Provide a URI or hyperlink to the original,
-			   unmodified version of this Application.
-			3. Provide a copy of this license, or a URI or
-			   hyperlink to this license.
-			4. Indicate if You modified this Application, and
-			   retain any notice included with this Application
-			   under this term.
+  An "Application" is any work that makes use of an interface provided
+by the Library, but which is not otherwise based on the Library.
+Defining a subclass of a class defined by the Library is deemed a mode
+of using an interface provided by the Library.
 
-	b. Licensing
-		i. Every recipient of this Application automatically receives
-		   an offer from the Licensor to exercise the rights granted by
-		   this License under the terms and conditions of this License.
-			1. No Licensee may impose any different or additional
-			   terms and conditions to this Application if doing so
-			   restricts exercise of any right granted by this
-			   License to any recipient of this Application.
-		ii. The Licensor may elect to exempt Source Code files or 
-		    sections of Source Code files from any or all conditions
-		    in section 3, or from all terms of this license.
-			1. The Licensor may choose to exempt a file or section
-			   from all conditions in section 3 by including a
-			   notice which declares the exemption and names
-			   section 3(b)(ii). The following boilerplate
-			   text may be used to declare this exemption.
+  A "Combined Work" is a work produced by combining or linking an
+Application with the Library.  The particular version of the Library
+with which the Combined Work was made is also called the "Linked
+Version".
 
-				Under Section 3(b)(ii) of the Free-As-In-Beer
-				License, this file is exempted from all
-				conditions in Section 3 of the license.
+  The "Minimal Corresponding Source" for a Combined Work means the
+Corresponding Source for the Combined Work, excluding any source code
+for portions of the Combined Work that, considered in isolation, are
+based on the Application, and not on the Linked Version.
 
-			2. The Licensor may choose to exempt Source Code
-			   files or sections thereof from specific conditions
-			   in section 3 by including a notice which declares
-			   the exemption, names the conditions, and names
-			   section 3(b)(ii). The following boilerplate text,
-			   followed by a list of section headers (e.g.,
-			   Section 3(a) - Attribution) may be used to declare
-			   this exemption.
+  The "Corresponding Application Code" for a Combined Work means the
+object code and/or source code for the Application, including any data
+and utility programs needed for reproducing the Combined Work from the
+Application, but excluding the System Libraries of the Combined Work.
 
-				Under Section 3(b)(ii) of the Free-As-In-Beer
-				License, this file is exempted from certain
-				conditions in Section 3 of the license:
+  1. Exception to Section 3 of the GNU GPL.
 
-			3. The Licensor may choose to exempt Source Code
-			   files or sections thereof from all terms and
-			   conditions of the license by including a notice
-			   which declares the exemption and names
-			   section 3(b)(ii). The following boilerplate text
-			   may be used to declare this exemption.
+  You may convey a covered work under sections 3 and 4 of this License
+without being bound by section 3 of the GNU GPL.
 
-				Under section 3(b)(ii) of the Free-As-In-Beer
-				License, this file is exempted from all terms
-				and conditions of the license.
+  2. Conveying Modified Versions.
 
-		iii. If this Application is a Library, other Applications 
-		     including this Application as a Library need not comply 
-		     with the conditions in section 3(b)(i), provided that any
-		     modifications to this Application comply with the 
-		     remainder of this license. 
+  If you modify a copy of the Library, and, in your modifications, a
+facility refers to a function or data to be supplied by an Application
+that uses the facility (other than as an argument passed when the
+facility is invoked), then you may convey a copy of the modified
+version:
 
-	c. Sale of the Application and Source Code Availability
-		i. The Source Code must be made available in an electronic
-		   format to any individual, individuals, entity, or entities
-		   that request access to the Source Code under the terms of
-		   this license.
-		ii. You may not Sell the Source Code.
-		iii. You may accept donations to cover the cost of transmitting
-		     the Source Code electronically, provided that the Source
-		     Code remains available free of charge. 
-		iv. You may Sell physical media containing the Source Code,
-		    provided that the Source Code remains available free of
-		    charge in an electronic format.
-		v. You may Sell Binaries, provided that the Source Code remains
-		   available free of charge in an electronic format.
+   a) under this License, provided that you make a good faith effort to
+   ensure that, in the event an Application does not supply the
+   function or data, the facility still operates, and performs
+   whatever part of its purpose remains meaningful, or
 
-	d. Libraries
-		i. Libraries required to Compile or Run this Application must
-		   be available free of charge, unless:
-			1. An alternative library is available free of charge,
-			   and
-			2. A URI or hyperlink to a free-of-charge alternative
-			   is included with the Source Code.
+   b) under the GNU GPL, with none of the additional permissions of
+   this License applicable to that copy.
 
-4. Disclaimer of Warranties and Limitation of Liability
+  3. Object Code Incorporating Material from Library Header Files.
 
-	a. Unless separately undertaken by the Licensor, the Licensor offers
-	   this Application as-is, without any representation or warranty of
-	   any kind, whether express, implied, statutory, or other.
-	b. In no event (including, without limitation, negligence) will the
-	   Licensor be liable to You for any costs, losses, damages, or
-	   expenses arising from the use of this Application.
-	c. The disclaimer of warranties and limitation of liability provided
-	   above shall be interpreted in a manner that, to the extent possible,
-	   most closely approximates an absolute disclaimer and waiver of all
-	   liability.
+  The object code form of an Application may incorporate material from
+a header file that is part of the Library.  You may convey such object
+code under terms of your choice, provided that, if the incorporated
+material is not limited to numerical parameters, data structure
+layouts and accessors, or small macros, inline functions and templates
+(ten or fewer lines in length), you do both of the following:
 
-5. Term
+   a) Give prominent notice with each copy of the object code that the
+   Library is used in it and that the Library and its use are
+   covered by this License.
 
-	a. This license applies for the term of the copyright and similar
-	   rights licensed here. If You fail to comply with this license, 
-	   then Your rights under this license terminate automatically.
-		i. Sections 4, 5, and 6 survive termination of this license.
+   b) Accompany the object code with a copy of the GNU GPL and this license
+   document.
 
-6. Other Terms and Conditions
+  4. Combined Works.
 
-	a. To the extent possible, if any provision of this license is deemed
-	   unenforceable, it shall be automatically reformed to the minimum
-	   extent necessary to make it enforceable. If the provision cannot be
-	   reformed, it shall be severed from this license without affecting
-	   the enforceability of the remaining terms and conditions.
-	b. No term or condition of this license will be waived and no failure
-	   to comply consented to unless expressly agreed to by the Licensor.
+  You may convey a Combined Work under terms of your choice that,
+taken together, effectively do not restrict modification of the
+portions of the Library contained in the Combined Work and reverse
+engineering for debugging such modifications, if you also do each of
+the following:
+
+   a) Give prominent notice with each copy of the Combined Work that
+   the Library is used in it and that the Library and its use are
+   covered by this License.
+
+   b) Accompany the Combined Work with a copy of the GNU GPL and this license
+   document.
+
+   c) For a Combined Work that displays copyright notices during
+   execution, include the copyright notice for the Library among
+   these notices, as well as a reference directing the user to the
+   copies of the GNU GPL and this license document.
+
+   d) Do one of the following:
+
+       0) Convey the Minimal Corresponding Source under the terms of this
+       License, and the Corresponding Application Code in a form
+       suitable for, and under terms that permit, the user to
+       recombine or relink the Application with a modified version of
+       the Linked Version to produce a modified Combined Work, in the
+       manner specified by section 6 of the GNU GPL for conveying
+       Corresponding Source.
+
+       1) Use a suitable shared library mechanism for linking with the
+       Library.  A suitable mechanism is one that (a) uses at run time
+       a copy of the Library already present on the user's computer
+       system, and (b) will operate properly with a modified version
+       of the Library that is interface-compatible with the Linked
+       Version.
+
+   e) Provide Installation Information, but only if you would otherwise
+   be required to provide such information under section 6 of the
+   GNU GPL, and only to the extent that such information is
+   necessary to install and execute a modified version of the
+   Combined Work produced by recombining or relinking the
+   Application with a modified version of the Linked Version. (If
+   you use option 4d0, the Installation Information must accompany
+   the Minimal Corresponding Source and Corresponding Application
+   Code. If you use option 4d1, you must provide the Installation
+   Information in the manner specified by section 6 of the GNU GPL
+   for conveying Corresponding Source.)
+
+  5. Combined Libraries.
+
+  You may place library facilities that are a work based on the
+Library side by side in a single library together with other library
+facilities that are not Applications and are not covered by this
+License, and convey such a combined library under terms of your
+choice, if you do both of the following:
+
+   a) Accompany the combined library with a copy of the same work based
+   on the Library, uncombined with any other library facilities,
+   conveyed under the terms of this License.
+
+   b) Give prominent notice with the combined library that part of it
+   is a work based on the Library, and explaining where to find the
+   accompanying uncombined form of the same work.
+
+  6. Revised Versions of the GNU Lesser General Public License.
+
+  The Free Software Foundation may publish revised and/or new versions
+of the GNU Lesser General Public License from time to time. Such new
+versions will be similar in spirit to the present version, but may
+differ in detail to address new problems or concerns.
+
+  Each version is given a distinguishing version number. If the
+Library as you received it specifies that a certain numbered version
+of the GNU Lesser General Public License "or any later version"
+applies to it, you have the option of following the terms and
+conditions either of that published version or of any later version
+published by the Free Software Foundation. If the Library as you
+received it does not specify a version number of the GNU Lesser
+General Public License, you may choose any version of the GNU Lesser
+General Public License ever published by the Free Software Foundation.
+
+  If the Library as you received it specifies that a proxy can decide
+whether future versions of the GNU Lesser General Public License shall
+apply, that proxy's public statement of acceptance of any version is
+permanent authorization for you to choose that version for the
+Library.
