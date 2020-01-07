@@ -57,6 +57,7 @@ public class Tester {
 
     private Tester() {
         mKey = new MorseKey(mMorseListener);
+        mKey.setDebug(true);
         mKey.setSpeed(new MorseSpeed.Group(MorseSpeed.getSpeedForWPM(5)));
         mKey.setSpeedFloor(new MorseSpeed.Group(MorseSpeed.getSpeedForWPM(5)));
 

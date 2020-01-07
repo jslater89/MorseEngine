@@ -49,6 +49,8 @@ public class MorseKey {
 
     private MorseListener mListener;
 
+    private boolean debug = false;
+
     /**
      *
      * @param listener A {@link MorseListener} to receive events from this Morse key.
@@ -211,6 +213,7 @@ public class MorseKey {
 
         List<MorseSignal> fallbackCopy = new ArrayList<>(mCurrentSignal);
         MorseFallbackDecoder fallback = new MorseFallbackDecoder(fallbackCopy, getMarkSpeed(), mStats, character, prosign);
+        fallback.setDebug(debug);
         List<MorseCharacter> fallbackDecoded = fallback.decode();
 
         if(fallbackDecoded != null && fallbackDecoded.size() > 0) {
@@ -367,5 +370,9 @@ public class MorseKey {
 
     private long getMaxInterwordLength() {
         return (long) Math.max(mMaxInterwordLength, mWordSpeed.dotMsec * 7 * 1.5);
+    }
+
+    public void setDebug(boolean debug) {
+        this.debug = debug;
     }
 }

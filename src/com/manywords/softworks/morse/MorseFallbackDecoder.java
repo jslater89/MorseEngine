@@ -37,8 +37,9 @@ class MorseFallbackDecoder {
         if(candidateProsign != null) hasCandidateProsign = true;
     }
 
-    // Do mean-shift clustering to find a dot center, a dash center, and possibly an
-    // inter-word center
+    private boolean debug = false;
+
+    // Do mean-shift clustering to determine speeds
     private boolean analyze() {
         int min = Integer.MAX_VALUE;
         int max = 0;
@@ -59,8 +60,8 @@ class MorseFallbackDecoder {
             if(s.duration < histogram.length) histogram[(int) s.duration]++;
         }
 
-        //System.out.println("Min/max " + min + "/" + max);
-        //System.out.println("Histogram: " + Arrays.toString(histogram));
+        if(debug) System.out.println("Min/max " + min + "/" + max);
+        if(debug) System.out.println("Histogram: " + Arrays.toString(histogram));
 
         final int windowRadius = Math.max(min, 75);
         final int mergeRadius = windowRadius / 3;
@@ -126,7 +127,7 @@ class MorseFallbackDecoder {
             }
         }
 
-        //System.out.println("After " + trials + " trials: " + merged);
+        if(debug) System.out.println("After " + trials + " trials: " + merged);
 
         if(merged.size() == 1) {
             int estimate = merged.get(0).center;
@@ -162,7 +163,17 @@ class MorseFallbackDecoder {
                 }
             }
 
-            setEstimatedSpeeds(estimate / count);
+            estimate = estimate / count;
+
+            if(merged.get(0).center > 0.66 * median) {
+                if(estimate > MorseKey.FUDGE_FACTOR * mCurrentMarkSpeed.dashMsec) {
+                    estimate /= 3;
+                    setEstimatedSpeeds(estimate);
+                }
+            }
+            else {
+                setEstimatedSpeeds(estimate);
+            }
         }
 
         return true;
@@ -203,6 +214,10 @@ class MorseFallbackDecoder {
         return (int) Math.round((double) sum / (double) count);
     }
 
+    public void setDebug(boolean debug) {
+        this.debug = debug;
+    }
+
     private static class Window {
         int center;
         int radius;
@@ -216,7 +231,7 @@ class MorseFallbackDecoder {
     }
 
     private void setEstimatedSpeeds(int dotMsec) {
-        //System.out.println("Estimated dot speed: " + dotMsec);
+        if(debug) System.out.println("Estimated dot speed: " + dotMsec);
         mEstimatedMarkSpeed = new MorseSpeed(dotMsec);
         mEstimatedCharSpeed = new MorseSpeed((int) (dotMsec * 1.1));
         mEstimatedWordSpeed = new MorseSpeed((int) (dotMsec * 1.1));
