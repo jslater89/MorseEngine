@@ -60,6 +60,7 @@ class MorseFallbackDecoder {
             if(s.duration < histogram.length) histogram[(int) s.duration]++;
         }
 
+        if(debug) System.out.println("Expected dot speed: " + mCurrentMarkSpeed.dotMsec);
         if(debug) System.out.println("Min/max " + min + "/" + max);
         if(debug) System.out.println("Histogram: " + Arrays.toString(histogram));
 
@@ -131,7 +132,7 @@ class MorseFallbackDecoder {
 
         if(merged.size() == 1) {
             int estimate = merged.get(0).center;
-            if(estimate > mCurrentMarkSpeed.dashMsec) {
+            if(estimate > MorseKey.FUDGE_FACTOR * mCurrentMarkSpeed.dashMsec) {
                 estimate /= 3;
             }
 
@@ -165,15 +166,17 @@ class MorseFallbackDecoder {
 
             estimate = estimate / count;
 
-            if(merged.get(0).center > 0.66 * median) {
-                if(estimate > MorseKey.FUDGE_FACTOR * mCurrentMarkSpeed.dashMsec) {
-                    estimate /= 3;
-                    setEstimatedSpeeds(estimate);
-                }
+            if(merged.get(0).center > 0.66 * median && estimate > MorseKey.FUDGE_FACTOR * mCurrentMarkSpeed.dashMsec) {
+                estimate /= 3;
+                setEstimatedSpeeds(estimate);
             }
             else {
                 setEstimatedSpeeds(estimate);
             }
+        }
+
+        if(mEstimatedCharSpeed == null || mEstimatedMarkSpeed == null || mEstimatedWordSpeed == null) {
+            throw new IllegalStateException();
         }
 
         return true;
